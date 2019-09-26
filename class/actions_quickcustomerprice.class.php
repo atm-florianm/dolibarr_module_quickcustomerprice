@@ -163,8 +163,9 @@ class Actionsquickcustomerprice
                             $strToFind[] = 'td.linecolqty';
                         }
                         if(! empty($user->rights->quickcustomerprice->edit_discount)) $strToFind[] = 'td.linecoldiscount';
+                        $strToFind[] = 'td.linecolcycleref';
                     ?>
-			  		$('table#tablelines tr[id]').find('<?php echo implode(',', $strToFind); ?>'+',td.linecolcycleref').each(function(i,item) {
+                    $('table#tablelines tr[id]').find('<?php echo implode(',', $strToFind); ?>').each(function(i,item) {
 			  			value = $(item).html();
 			  			if(value=='&nbsp;')value='';
 
@@ -178,9 +179,9 @@ class Actionsquickcustomerprice
 			  			else if($(item).hasClass('linecolqty')) {
 			  				col='qty';
 			  			}
-                                                else if($(item).hasClass('linecolcycleref')) {
-                                                        col='situation_cycle_ref';
-                                                }
+                        else if($(item).hasClass('linecolcycleref')) {
+                                col='situation_cycle_ref';
+                        }
 			  			else {
 			  				col = 'price';
 			  			}
